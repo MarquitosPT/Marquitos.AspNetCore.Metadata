@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net5.0;netcoreapp3.1;netcoreapp2.1</TargetFrameworks>
+		<Product>Metadata middleware</Product>
+		<Company>MarquitosPT</Company>
+		<Copyright>Copyright © MarquitosPT</Copyright>
+		<Authors>MarquitosPT</Authors>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<!--  Visual Studio Command Line:   sn -k MarquitosPT.snk -->
+		<!--  Visual Studio Command Line:   sn -p MarquitosPT.snk MarquitosPT.PublicKey-->
+		<AssemblyOriginatorKeyFile>../../tools/MarquitosPT.snk</AssemblyOriginatorKeyFile>
+		<PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
+		<SignAssembly>true</SignAssembly>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<GenerateAssemblyTitleAttribute>true</GenerateAssemblyTitleAttribute>
+		<GenerateAssemblyDescriptionAttribute>true</GenerateAssemblyDescriptionAttribute>
+		<NoWarn>$(NoWarn);1591</NoWarn>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<PackageId>Marquitos.AspNetCore.Metadata</PackageId>
+		<PackageTags>middleware</PackageTags>
+		<PackageIconUrl></PackageIconUrl>
+		<PackageProjectUrl>https://github.com/MarquitosPT/Marquitos.AspNetCore.Metadata</PackageProjectUrl>
+		<PackageLicenseUrl></PackageLicenseUrl>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/MarquitosPT/Marquitos.AspNetCore.Metadata.git</RepositoryUrl>
+		<GeneratePackageOnBuild Condition=" '$(BuildConfiguration)' == 'Release' ">true</GeneratePackageOnBuild>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<Version>1.0.0</Version>
+		<AssemblyVersion>1.0.0</AssemblyVersion>
+		<FileVersion>1.0.0.1</FileVersion>
+	</PropertyGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)'=='net5.0' or '$(TargetFramework)'=='netcoreapp3.1' ">
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)'=='netcoreapp2.1' ">
+		<PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.1.1" />
+		<PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+	</ItemGroup>
+
+</Project>
