@@ -3,6 +3,7 @@
 	<PropertyGroup>
 		<TargetFrameworks>net5.0;netcoreapp3.1;netcoreapp2.1</TargetFrameworks>
 		<Product>Metadata middleware</Product>
+		<Description>ASP.NET Core middleware to get current version information.</Description>
 		<Company>MarquitosPT</Company>
 		<Copyright>Copyright © MarquitosPT</Copyright>
 		<Authors>MarquitosPT</Authors>
@@ -22,19 +23,20 @@
 
 	<PropertyGroup>
 		<PackageId>Marquitos.AspNetCore.Metadata</PackageId>
-		<PackageTags>middleware</PackageTags>
+		<PackageTags>aspnetcore middleware</PackageTags>
 		<PackageIconUrl></PackageIconUrl>
 		<PackageProjectUrl>https://github.com/MarquitosPT/Marquitos.AspNetCore.Metadata</PackageProjectUrl>
-		<PackageLicenseUrl></PackageLicenseUrl>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<RepositoryType>git</RepositoryType>
-		<RepositoryUrl>https://github.com/MarquitosPT/Marquitos.AspNetCore.Metadata.git</RepositoryUrl>
-		<GeneratePackageOnBuild Condition=" '$(BuildConfiguration)' == 'Release' ">true</GeneratePackageOnBuild>
+		<RepositoryUrl>https://github.com/MarquitosPT/Marquitos.AspNetCore.Metadata</RepositoryUrl>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	</PropertyGroup>
 
 	<PropertyGroup>
 		<Version>1.0.0</Version>
 		<AssemblyVersion>1.0.0</AssemblyVersion>
-		<FileVersion>1.0.0.1</FileVersion>
+		<FileVersion>1.0.0.1</FileVersion>	
 	</PropertyGroup>
 
 	<ItemGroup Condition=" '$(TargetFramework)'=='net5.0' or '$(TargetFramework)'=='netcoreapp3.1' ">
