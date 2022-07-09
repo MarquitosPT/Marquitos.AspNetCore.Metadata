@@ -3,7 +3,6 @@ on:
   release:
     types:
       - created
-      - edited
 env:
   NUGET_PACKAGE_PUBLISH_PROFILE: ${{ secrets.NUGET_API_KEY }}
   CONFIGURATION: Release
@@ -29,8 +28,7 @@ jobs:
       - name: Build
         run: dotnet build --no-restore
 
-      - name: publish on version change
-        id: publish_nuget
+      - name: Publish NuGet
         uses: brandedoutcast/publish-nuget@v2.5.5
         with:
           # Filepath of the project to be packaged, relative to root of repository
