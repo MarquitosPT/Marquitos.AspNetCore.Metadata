@@ -8,26 +8,33 @@ env:
   NUGET_PACKAGE_PUBLISH_PROFILE: ${{ secrets.NUGET_API_KEY }}
   CONFIGURATION: Release
   DOTNET_CORE_VERSION: 6.0.*
-  WORKING_DIRECTORY: Marquitos.AspNetCore.Metadata/src/Marquitos.AspNetCore.Metadata/Marquitos.AspNetCore.Metadata.csproj
+  WORKING_DIRECTORY: Marquitos.AspNetCore.Metadata/src/Marquitos.AspNetCore.Metadata
+  PROJECT_FILE_PATH: Marquitos.AspNetCore.Metadata/src/Marquitos.AspNetCore.Metadata/Marquitos.AspNetCore.Metadata.csproj
 jobs:
   publish:
     name: build, pack & publish
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2    
-      - name: Setup .NET Core
-        uses: actions/setup-dotnet@v1
+      - uses: actions/checkout@v3
+      
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v2
         with:
           dotnet-version: ${{ env.DOTNET_CORE_VERSION }}
           include-prerelease: true
           
-      # Publish
+      - name: Restore dependencies
+        run: dotnet restore
+        
+      - name: Build
+        run: dotnet build --no-restore
+
       - name: publish on version change
         id: publish_nuget
         uses: brandedoutcast/publish-nuget@v2.5.5
         with:
           # Filepath of the project to be packaged, relative to root of repository
-          PROJECT_FILE_PATH: ${{ env.WORKING_DIRECTORY }}
+          PROJECT_FILE_PATH: ${{ env.PROJECT_FILE_PATH }}
           
           # NuGet package id, used for version detection & defaults to project name
           # PACKAGE_NAME: Core
