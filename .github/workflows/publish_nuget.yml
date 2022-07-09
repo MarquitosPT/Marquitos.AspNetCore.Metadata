@@ -7,7 +7,7 @@ env:
   NUGET_PACKAGE_PUBLISH_PROFILE: ${{ secrets.NUGET_API_KEY }}
   CONFIGURATION: Release
   DOTNET_CORE_VERSION: 6.0.*
-  WORKING_DIRECTORY: src/Marquitos.AspNetCore.Metadata/Marquitos.AspNetCore.Metadata.csproj
+  WORKING_DIRECTORY: Marquitos.AspNetCore.Metadata/src/Marquitos.AspNetCore.Metadata/Marquitos.AspNetCore.Metadata.csproj
 jobs:
   publish:
     name: build, pack & publish
