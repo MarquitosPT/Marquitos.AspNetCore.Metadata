@@ -3,6 +3,7 @@ on:
   release:
     types:
       - created
+      - edited
 env:
   NUGET_PACKAGE_PUBLISH_PROFILE: ${{ secrets.NUGET_API_KEY }}
   CONFIGURATION: Release
