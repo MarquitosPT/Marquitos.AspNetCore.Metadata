@@ -19,7 +19,8 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: ${{ env.DOTNET_CORE_VERSION }}
-
+          include-prerelease: true
+          
       # Publish
       - name: publish on version change
         id: publish_nuget
